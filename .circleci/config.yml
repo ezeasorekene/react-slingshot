@@ -10,7 +10,8 @@ jobs:
     - checkout
     - save_cache:
         key: "npm-packages"
-        path: /src/node_modules
+        path:
+        - /src/node_modules
     - run: npm i
     - run:
         name: "Run Build"
