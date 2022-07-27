@@ -10,10 +10,11 @@ jobs:
   - checkout
   - save_cache:
       key: "npm-packages"
-      path: /src/node_modules
+      path: ${PWD)/src/node_modules
+  - run: npm i
   - run:
       name: "Run Build"
-      command: npm lint
+      command: npm run lint
       
   test:
     docker:
@@ -26,7 +27,7 @@ jobs:
   - run: npm i
   - run:
       name: "Run Test"
-      command: npm test
+      command: npm run test
       
   analyze:
     docker:
