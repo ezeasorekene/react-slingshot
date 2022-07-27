@@ -10,7 +10,7 @@ jobs:
   - checkout
   - save_cache:
       key: "npm-packages"
-      path: ${PWD)/src/node_modules
+      path: /src/node_modules
   - run: npm i
   - run:
       name: "Run Build"
@@ -23,7 +23,7 @@ jobs:
   - checkout
   - restore_cache
       keys:
-      - "npm-packages"
+      - npm-packages
   - run: npm i
   - run:
       name: "Run Test"
@@ -36,7 +36,7 @@ jobs:
   - checkout
   - restore_cache
       keys:
-      - "npm-packages"
+      - npm-packages
   - run:
       name: "Run Audit"
       command: npm audit
