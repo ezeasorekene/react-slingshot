@@ -23,7 +23,7 @@ jobs:
   - checkout
   - restore_cache:
       keys:
-        - "npm-packages"
+      - "npm-packages"
   - run: npm i
   - run:
       name: "Run Test"
@@ -36,7 +36,7 @@ jobs:
   - checkout
   - restore_cache:
       keys:
-        - "npm-packages"
+      - "npm-packages"
   - run:
       name: "Run Audit"
       command: npm audit
@@ -45,9 +45,9 @@ jobs:
     npm_workflow:
       jobs:
       - build
-      - test
-        requires:
-        - build
-      - analyze
-        requires:
-        - test
+      - test:
+          requires:
+          - build
+      - analyze:
+          requires:
+          - test
